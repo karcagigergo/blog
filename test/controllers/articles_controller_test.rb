@@ -5,8 +5,8 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     @article = articles(:one)
   end
 
-  test "should get index" do
-    get articles_url
+  test "should get index at root_url" do
+    get root_url
     assert_response :success
   end
 
@@ -43,6 +43,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
       delete article_url(@article)
     end
 
-    assert_redirected_to articles_url
+    assert_redirected_to root_url
   end
 end

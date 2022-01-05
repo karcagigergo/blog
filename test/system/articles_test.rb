@@ -6,16 +6,16 @@ class ArticlesTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    visit articles_url
+    visit root_url
     assert_selector "h1", text: "Articles"
   end
 
   test "creating a Article" do
-    visit articles_url
+    visit root_url
     click_on "New Article"
 
-    fill_in "Body", with: @article.body
-    fill_in "Title", with: @article.title
+    fill_in "Body", with: 'This is a new article - Updated'
+    fill_in "Title", with: 'Updated Article'
     click_on "Create Article"
 
     assert_text "Article was successfully created"
@@ -23,11 +23,11 @@ class ArticlesTest < ApplicationSystemTestCase
   end
 
   test "updating a Article" do
-    visit articles_url
+    visit root_url
     click_on "Edit", match: :first
 
-    fill_in "Body", with: @article.body
-    fill_in "Title", with: @article.title
+    fill_in "Body", with: 'This is a new article'
+    fill_in "Title", with: 'Article'
     click_on "Update Article"
 
     assert_text "Article was successfully updated"
@@ -35,7 +35,7 @@ class ArticlesTest < ApplicationSystemTestCase
   end
 
   test "destroying a Article" do
-    visit articles_url
+    visit root_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
