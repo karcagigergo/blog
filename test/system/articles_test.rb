@@ -14,8 +14,8 @@ class ArticlesTest < ApplicationSystemTestCase
     visit root_url
     click_on "New Article"
 
-    fill_in "Body", with: 'This is a new article - Updated'
-    fill_in "Title", with: 'Updated Article'
+    find(".trix-content").set("Body")
+    fill_in "Title", with: @article.title
     click_on "Create Article"
 
     assert_text "Article was successfully created"
@@ -26,7 +26,7 @@ class ArticlesTest < ApplicationSystemTestCase
     visit root_url
     click_on "Edit", match: :first
 
-    fill_in "Body", with: 'This is a new article'
+    find(".trix-content").set("Body")
     fill_in "Title", with: 'Article'
     click_on "Update Article"
 
