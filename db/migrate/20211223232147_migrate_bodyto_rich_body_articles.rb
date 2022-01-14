@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateBodytoRichBodyArticles < ActiveRecord::Migration[6.1]
   def up
     Article.find_each do |article|
